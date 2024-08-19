@@ -10,9 +10,9 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
   },
   performance: {
+    hints: false,
     maxEntrypointSize: 512000,
     maxAssetSize: 512000,
-    hints: false,
   },
   module: {
     rules: [
