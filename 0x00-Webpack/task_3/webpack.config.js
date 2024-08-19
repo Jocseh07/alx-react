@@ -4,14 +4,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  plugins: [
-    new HtmlWebpackPlugin({
-      filename: './index.html',
-    }),
-    new CleanWebpackPlugin(),
-  ],
-  devtool: 'inline-source-map',
-
   entry: {
     header: './modules/header/header.js',
     body: './modules/body/body.js',
@@ -21,16 +13,14 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
     filename: '[name].bundle.js',
   },
-  performance: {
-    hints: false,
-    maxEntrypointSize: 512000,
-    maxAssetSize: 512000,
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
-  },
+  devtool: 'inline-source-map',
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html', // Optional: specify an HTML template if needed
+      filename: 'index.html',
+    }),
+    new CleanWebpackPlugin(),
+  ],
   devServer: {
     static: {
       directory: path.join(__dirname, 'public'),
@@ -59,5 +49,10 @@ module.exports = {
         ],
       },
     ],
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
 };
