@@ -1,4 +1,4 @@
-import $ from 'jquery';
+const $ = require('jquery');
 import './footer.css';
 
 $('body').append('<footer></footer>');
