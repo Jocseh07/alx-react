@@ -32,6 +32,9 @@ module.exports = {
     },
   },
   devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
     port: 8564,
     open: true,
   },
@@ -43,11 +46,11 @@ module.exports = {
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
+        type: 'asset/resource',
         use: [
           'file-loader',
           {
             loader: 'image-webpack-loader',
-            type: 'asset/resource',
             options: {
               bypassOnDebug: true,
               disable: true,
