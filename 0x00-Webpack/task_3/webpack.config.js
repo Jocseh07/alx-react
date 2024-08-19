@@ -5,13 +5,15 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   mode: 'development',
   plugins: [
-    new HtmlWebpackPlugin({ filename: 'index.html' }),
+    new HtmlWebpackPlugin({
+      filename: './index.html',
+    }),
     new CleanWebpackPlugin(),
   ],
   entry: {
-    header: path.resolve(__dirname, './modules/header/header.js'),
-    body: path.resolve(__dirname, './modules/body/body.js'),
-    footer: path.resolve(__dirname, './modules/footer/footer.js'),
+    header: './modules/header/header.js',
+    body: './modules/body/body.js',
+    footer: './modules/footer/footer.js',
   },
   output: {
     filename: '[name].bundle.js',
@@ -45,5 +47,6 @@ module.exports = {
   },
   devServer: {
     port: 8564,
+    open: true,
   },
 };
