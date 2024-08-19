@@ -10,19 +10,30 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
+  devtool: 'inline-source-map',
+
   entry: {
     header: './modules/header/header.js',
     body: './modules/body/body.js',
     footer: './modules/footer/footer.js',
   },
   output: {
-    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'public'),
+    filename: '[name].bundle.js',
   },
   performance: {
     hints: false,
     maxEntrypointSize: 512000,
     maxAssetSize: 512000,
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
+  devServer: {
+    port: 8564,
+    open: true,
   },
   module: {
     rules: [
@@ -36,6 +47,7 @@ module.exports = {
           'file-loader',
           {
             loader: 'image-webpack-loader',
+            type: 'asset/resource',
             options: {
               bypassOnDebug: true,
               disable: true,
@@ -44,9 +56,5 @@ module.exports = {
         ],
       },
     ],
-  },
-  devServer: {
-    port: 8564,
-    open: true,
   },
 };
