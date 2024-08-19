@@ -3,6 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: 'index.html',
+    }),
+    new CleanWebpackPlugin(),
+  ],
+  devtool: 'inline-source-map',
   mode: 'development',
   entry: {
     header: './modules/header/header.js',
@@ -13,18 +21,8 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
     filename: '[name].bundle.js',
   },
-  devtool: 'inline-source-map',
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html', // Optional: specify an HTML template if needed
-      filename: 'index.html',
-    }),
-    new CleanWebpackPlugin(),
-  ],
   devServer: {
-    static: {
-      directory: path.join(__dirname, 'public'),
-    },
+    static: path.join(__dirname, './public'),
     port: 8564,
     open: true,
   },
