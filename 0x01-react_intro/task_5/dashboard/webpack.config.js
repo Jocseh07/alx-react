@@ -9,6 +9,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
+  mode: 'development',
   devtool: 'inline-source-map',
   entry: {
     main: path.resolve(__dirname, './src/index.js'),
@@ -16,6 +17,11 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  devServer: {
+    static: path.join(__dirname, './dist'),
+    port: 8564,
+    open: true,
   },
   module: {
     rules: [
