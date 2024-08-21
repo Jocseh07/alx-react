@@ -1,4 +1,5 @@
-import Enzyme from 'enzyme';
-import ReactEighteenAdapter from '@cfaester/enzyme-adapter-react-18';
+import { configure } from 'enzyme';
 
-Enzyme.configure({ adapter: new ReactEighteenAdapter() });
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
