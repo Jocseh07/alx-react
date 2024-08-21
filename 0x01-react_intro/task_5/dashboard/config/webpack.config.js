@@ -4,7 +4,9 @@ const path = require('path');
 module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
+      name: 'index.html',
+      inject: false,
+      template: './dist/index.html',
     }),
   ],
   mode: 'development',
