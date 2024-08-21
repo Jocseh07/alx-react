@@ -1,0 +1,59 @@
+:root {
+  --primary-color: #e0354b;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  display: flex;
+  align-items: center;
+}
+.App-header h1 {
+  color: var(--primary-color);
+}
+
+.App-logo {
+  height: 300px;
+}
+
+.App-body::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: var(--primary-color);
+}
+.App-body {
+  flex: 1;
+}
+
+.App-body p {
+  margin: 20px 100px;
+}
+
+.App-footer::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: var(--primary-color);
+}
+
+.App-footer {
+  text-align: center;
+  font-style: italic;
+  justify-self: end;
+}
