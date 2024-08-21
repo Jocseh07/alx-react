@@ -25,7 +25,7 @@
   },
   "jest": {
     "setupFilesAfterEnv": [
-      "<rootDir>/setupTests.js"
+      "./src/setupTests.js"
     ]
   },
   "browserslist": {
