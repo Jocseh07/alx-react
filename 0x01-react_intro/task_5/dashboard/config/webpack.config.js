@@ -17,7 +17,7 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
   },
   devServer: {
-    static: '../dist',
+    static: './dist',
     compress: true,
     open: true,
     hot: true,
@@ -42,6 +42,16 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       },
     ],
   },
