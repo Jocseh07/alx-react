@@ -7,14 +7,31 @@ import './App.css';
 import PropTypes from 'prop-types';
 import CourseList from '../CourseList/CourseList';
 
-function App({ isLoggedIn }) {
+const listCourses = [
+  { id: 1, name: 'ES6', credit: 60 },
+  { id: 2, name: 'Webpack', credit: 20 },
+  { id: 3, name: 'React', credit: 40 },
+];
+
+const listNotifications = [
+  { id: 1, type: 'default', value: 'New course available' },
+  { id: 2, type: 'urgent', value: 'New resume available' },
+  { id: 3, type: 'urgent', value: 'New data available' },
+];
+
+function App({ isLoggedIn = false }) {
   return (
     <>
       <div className='container'>
-        <Notifications />
         <div className='App'>
-          <Header />
-          {isLoggedIn ? <CourseList /> : <Login />}
+          <div className='App-header'>
+            <Header />
+            <Notifications
+              displayDrawer={false}
+              notifications={listNotifications}
+            />
+          </div>
+          {isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
           <Footer />
         </div>
       </div>
@@ -24,10 +41,6 @@ function App({ isLoggedIn }) {
 
 App.propTypes = {
   isLoggedIn: PropTypes.bool,
-};
-
-App.defaultProps = {
-  isLoggedIn: false,
 };
 
 export default App;

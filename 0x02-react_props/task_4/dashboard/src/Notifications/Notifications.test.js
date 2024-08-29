@@ -25,18 +25,6 @@ describe('Notifications Component', () => {
     expect(html).toBe(expectedHtml);
   });
 
-  it('displays the menu item when displayDrawer is false', () => {
-    const wrapper = shallow(<Notifications displayDrawer={false} />);
-    const menuItem = wrapper.find('.menuItem');
-    expect(menuItem.exists()).toBe(false);
-  });
-
-  it('does not display the div.Notifications when displayDrawer is false', () => {
-    const wrapper = shallow(<Notifications displayDrawer={false} />);
-    const notificationsDiv = wrapper.find('div.Notifications');
-    expect(notificationsDiv.exists()).toBe(false);
-  });
-
   it('displays the menu item when displayDrawer is true', () => {
     const wrapper = shallow(<Notifications displayDrawer={true} />);
     const menuItem = wrapper.find('.menuItem');

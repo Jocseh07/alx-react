@@ -3,8 +3,12 @@ import PropTypes from 'prop-types';
 import { getLatestNotification } from '../utils/utils';
 import './Notifications.css';
 import NotificationItem from './NotificationItem';
+import NotificationItemShape from './NotificationItemShape';
 
-export default function Notifications({ displayDrawer = false }) {
+export default function Notifications({
+  displayDrawer = false,
+  listNotifications,
+}) {
   return (
     <>
       <div className='Notifications'>
@@ -19,11 +23,16 @@ export default function Notifications({ displayDrawer = false }) {
             >
               <img src='../assets/close-icon.png' alt='Close' />
             </button>
-            <ul>
-              <NotificationItem type='default' value='New course available' />
-              <NotificationItem type='urgent' value='New resume available' />
-              <NotificationItem html={{ __html: getLatestNotification() }} />
-            </ul>
+            {listNotifications && listNotifications.length === 0 ? (
+              <p>No new notification for now</p>
+            ) : (
+              <ul>
+                {listNotifications &&
+                  listNotifications.map((notification, index) => (
+                    <NotificationItem key={index} {...notification} />
+                  ))}
+              </ul>
+            )}
           </>
         )}
       </div>
@@ -33,8 +42,5 @@ export default function Notifications({ displayDrawer = false }) {
 
 Notifications.propTypes = {
   displayDrawer: PropTypes.bool,
-};
-
-Notifications.defaultProps = {
-  displayDrawer: false,
+  listNotifications: PropTypes.arrayOf(NotificationItemShape),
 };
