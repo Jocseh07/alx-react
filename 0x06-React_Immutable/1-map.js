@@ -1,4 +1,4 @@
-const { Map } = require('immutable');
+import { Map } from 'immutable';
 
 const getImmutableObject = (data) => Map(data);
 
