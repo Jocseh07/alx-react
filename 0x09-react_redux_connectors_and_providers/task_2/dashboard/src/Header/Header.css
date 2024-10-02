@@ -1,0 +1,11 @@
+.App-header {
+  display: flex;
+  align-items: center;
+}
+.App-header h1 {
+  color: var(--primary-color);
+}
+
+.App-logo {
+  height: 300px;
+}

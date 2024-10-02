@@ -1,0 +1,21 @@
+.App-body::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: var(--primary-color);
+}
+.App-body {
+  flex: 1;
+}
+
+.App-body p {
+  margin: 20px 100px;
+}
+
+.App-input {
+  margin-left: 100px;
+}
+
+.App-input * {
+  margin-right: 20px;
+}
